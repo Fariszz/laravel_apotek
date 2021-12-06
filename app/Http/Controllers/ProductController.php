@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -14,7 +17,16 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        if (Auth::user()->role_id != 1) {
+            $products = Product::with('User')
+            ->where('user_id', Auth::user()->id)->paginate(5);
+        }else{
+            $products = Product::with('User')->paginate(5);
+        }
+
+        return view('dashboard.product.index',[
+            'products' => $products
+        ]);
     }
 
     /**
@@ -24,7 +36,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('dashboard.product.create',[
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -35,7 +50,26 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'category_id' => 'required',
+            'nama' => 'required',
+            'harga' => 'required',
+            'description' => 'required',
+            'telfon' => 'required',
+            'stok' => 'required',
+            'image' => 'nullable',
+        ]);
+
+        $validatedData['user_id'] = Auth::user()->id;
+
+        if($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('images', 'public');
+        }
+
+        Product::create($validatedData);
+
+        return redirect()->route('product.index')
+        ->with('success', 'Product berhasil ditambahkan');
     }
 
     /**
@@ -44,9 +78,13 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        $product = Product::where('id', $id)->first();
+  
+        return view('dashboard.product.detail',[
+            'product' => $product
+        ]);
     }
 
     /**
@@ -55,9 +93,14 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $product = Product::where('id', $id)->first();
+        $categories = Category::all();
+        return view('dashboard.product.edit',[
+            'product' => $product,
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -69,7 +112,23 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $rules = [
+            'category_id' => 'required',
+            'nama' => 'required',
+            'harga' => 'required',
+            'description' => 'required',
+            'telfon' => 'required',
+            'stok' => 'required',
+            'image' => 'nullable',
+        ];
+
+        $validatedData = $request->validate($rules);
+
+        Product::where('id', $product->id)
+        ->update($validatedData);
+
+        return redirect()->route('product.index')
+        ->with('success', 'Data Berhasil diupdate');
     }
 
     /**
@@ -80,6 +139,13 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        if (File::exists('storage/'.$product->image)) {
+            File::delete('storage/'.$product->image);
+        }else{
+            dd("Images does not exts");
+        }
+        Product::find($product->id)->delete();
+        return redirect()->route('product.index')
+            ->with('success','Product berhasil dihapus');
     }
 }
