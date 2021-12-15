@@ -4,24 +4,26 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
+// use KyslikColumnSortableSortable;
+
 
 class OrderDetail extends Model
 {
-    use HasFactory;
+    use HasFactory, Sortable;
 
     protected $table = 'orderdetails';
 
     protected $fillable = [
-        'order_id',
-        'product_id',
-        'qty'
+        'user_id',
+        'total',
+        'status'
     ];
 
-    public function orders(){
-        return $this->belongsTo(Orders::class);
+    public $soratble = ['total'];
+
+    public function User(){
+        return $this->belongsTo(User::class,'user_id');
     }
 
-    public function Product(){
-        return $this->belongsTo(Product::class);
-    }
 }

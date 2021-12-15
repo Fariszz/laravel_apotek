@@ -2,25 +2,24 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Wishlist extends Model
 {
     use HasFactory;
 
-    protected $table = 'product';
+    protected $table = 'wishlist';
 
     protected $fillable = [
-        'kode_barang',
         'user_id',
         'category_id',
+        'product_id',
         'nama',
         'harga',
         'description',
-        'stok',
+        'quantity',
         'image',
-        'telfon',
     ];
 
     public function User(){
@@ -31,7 +30,7 @@ class Product extends Model
         return $this->belongsTo(Category::class,'category_id');
     }
 
-    public function OrderDetail(){
-        return $this->hasMany(OrderDetail::class);
+    public function Product(){
+        return $this->belongsTo(Product::class,  'product_id');
     }
 }

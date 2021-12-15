@@ -29,6 +29,16 @@
                 <i class="fas fa-fw fa-user"></i>
                 <span>User</span></a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('payment.check') }}">
+                <i class="fas fa-fw fa-users"></i>
+                <span>User Payment</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('category.index') }}">
+                <i class="fas fa-fw fa-box"></i>
+                <span>Category</span></a>
+        </li>
         <!-- Nav Item - Dropshipper Menu -->
         {{-- <li class="nav-item">
             <a class="nav-link" href="dropshipper.html">
@@ -44,9 +54,14 @@
                 <i class="fas fa-fw fa-prescription-bottle-alt"></i>
                 <span>Items</span></a>
         </li>
-        <hr class="sidebar-divider">
-    @endif
+        @endif
 
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('payment.history') }}">
+                <i class="fas fa-fw fa-list"></i>
+                <span>payment History</span></a>
+        </li>
+        <hr class="sidebar-divider">
     <!-- Divider -->
 
     <!-- Sidebar Toggler (Sidebar) -->

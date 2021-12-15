@@ -163,6 +163,8 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Darryldecode\Cart\CartServiceProvider::class,
+        // KyslikColumnSortableColumnSortableServiceProvider::class,
+        Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
         /*
          * Package Service Providers...
          */

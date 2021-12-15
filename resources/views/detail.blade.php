@@ -18,6 +18,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     </head>
     <body>
         <!-- Navigation-->
@@ -28,6 +29,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4 ml-auto">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ route('categories.index') }}">Category</a></li>
                         <!-- Authenticate Links -->
                         @guest
                         @if(Route::has('login'))
@@ -65,16 +67,20 @@
                     </form>
                 </div>
                 <div class="d-flex d-sm-inline-block mt-2 mt-sm-2">
-                    <a href="{{ route('cart.list') }}">
-                        <button class="btn btn-info text-white">
+                    <a href="{{ route('cart.index') }}">
+                        <button class="btn btn-info text-white position-relative">
                             <i class="fas fa-shopping-cart fa-sm"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                {{ $wishlists->count() }}
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
                         </button>
                     </a>
                 </div>
             </div>
         </nav>
         <!-- Section-->
-        <section class="py-5">
+        <section class="py-5 vh-100">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->nama }}" height="400" width="500"/></div>
@@ -83,7 +89,7 @@
                         <div class="fs-5 mb-5">
                             <span>Rp {{ number_format($product->harga,2) }}</span>
                             <br>
-                            <span>Stok {{ number_format($product->stok,2) }}</span>
+                            <span>Stok : {{ $product->stok }}</span>
                         </div>
                         <p class="lead">{{ $product->description }}</p>
                         {{-- <div class="d-flex">
@@ -94,15 +100,16 @@
                                 </button>
                             </a>
                         </div> --}}
-                        <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('cart.addToWishlist') }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <input type="hidden" value="{{ $product->id }}" name="id">
                             <input type="hidden" value="{{ $product->nama }}" name="nama">
+                            <input type="hidden" value="{{ $product->category_id }}" name="category_id">
                             <input type="hidden" value="{{ $product->harga }}" name="harga">
                             <input type="hidden" value="{{ $product->image }}"  name="image">
-                            <input type="hidden" value="1" name="stok">
-                            <button class="btn btn-outline-danger flex-shrink-0" type="submit">
-                                <i class="bi bi-cart me-1"></i>
+                            <input type="hidden" value="{{ $product->id }}" name="product_id">
+                            <input type="hidden" value="1" name="quantity">
+                            <button class="btn btn-outline-danger flex-shrink-0 show_confirm" type="submit">
+                                <i class="bi bi-cart me-1 "></i>
                                 Add to Cart
                             </button>
                         </form>
@@ -114,9 +121,33 @@
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Supraun Product 2021</p></div>
         </footer>
+
+        <script type="text/javascript">
+
+            $('.show_confirm').click(function(event) {
+                    var form =  $(this).closest("form");
+                    var name = $(this).data("name");
+                    event.preventDefault();
+                    swal({
+                        title: `Product Berhasil Ditambahkan `,
+                        text: "Product berhasil ditambahkan ke kerangjang.",
+                        icon: "info",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                    }
+                    });
+                });
+        </script>
+
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="/js/scripts.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     </body>
 </html>

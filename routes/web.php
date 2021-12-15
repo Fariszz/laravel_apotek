@@ -7,7 +7,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeCategoryController;
+use App\Http\Controllers\OrderDetailController;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +25,6 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 Route::get('/',[HomeController::class, 'index']);
 Route::get('/',[HomeController::class, 'search'])->name('search');
 
@@ -34,14 +36,37 @@ Auth::routes();
 Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard.index')->middleware('adminKaryawan');
 
 Route::prefix('dashboard')->group(function(){
+    //* Section Payment
+    Route::get('/payment',[OrderDetailController::class,'checkUserPayment'])->middleware('adminKaryawan')->name('payment.check');
+    Route::put('/payment/{orderdetails:id}',[OrderDetailController::class,'changeStatusPayment'])->middleware('adminKaryawan')->name('payment.change');
+    Route::get('/payment/order/{orderdetails:id}',[PaymentController::class,'show'])->middleware('adminKaryawan')->name('payment.showUser');
+    Route::get('/payment/history',[OrderDetailController::class,'userHistory'])->name('payment.history');
+    Route::get('/payment/history/{orderdetails:id}',[OrderDetailController::class, 'createUploadPembayaran'])->name('payment.createpayment');
+    Route::post('/payment/history/',[OrderDetailController::class, 'uploadPembayaran'])->middleware('adminKaryawan')->name('payment.uploadpayment');
+
+    //* Section Product
     Route::resource('product', ProductController::class)->middleware('adminKaryawan');
+
+    //*Section Users
     Route::resource('users', UserController::class)->middleware('IsAdmin');
+
+    // *Section Category
+    Route::get('/category',[CategoryController::class, 'index'])->middleware('IsAdmin')->name('category.index');
+    Route::get('/category/create',[CategoryController::class, 'create'])->middleware('IsAdmin')->name('category.create');
+    Route::post('/category/create',[CategoryController::class,'store'])->middleware('IsAdmin')->name('category.store');
+    Route::delete('/category/{category:id}',[CategoryController::class,'delete'])->middleware('IsAdmin')->name('category.destroy');
 });
 
-//* Cart
-Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
-Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
-Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
-Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
-Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//* Wishlist
+Route::get('/cart', [WishlistController::class, 'index'])->name('cart.index');
+Route::get('/cart/total', [WishlistController::class, 'addToOrder'])->name('cart.addToOrder');
+Route::post('/product',[WishlistController::class, 'addToWishlist'])->name('cart.addToWishlist');
+Route::put('/cart/{wishlist:id}',[WishlistController::class, 'updateQuantity'])->name('cart.updateQuantity');
+Route::delete('/cart/{wishlist:id}',[WishlistController::class, 'destroy'])->name('cart.delete');
+
+
+// * Category
+Route::get('/categories', [HomeCategoryController::class,'index'])->name('categories.index');
+Route::get('/categories/{category:slug}', [HomeCategoryController::class,'show'])->name('categories.show');
+

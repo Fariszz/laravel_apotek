@@ -9,7 +9,7 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="/assets/medicine.png" />
         <!-- Bootstrap icons-->
-        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/main.css" rel="stylesheet" />
@@ -18,8 +18,10 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     </head>
     <body>
+        @include('sweetalert::alert')
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
@@ -28,6 +30,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4 ml-auto">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ route('categories.index') }}">Category</a></li>
                         <!-- Authenticate Links -->
                         @guest
                         @if(Route::has('login'))
@@ -39,10 +42,8 @@
                             <div class="dropdown-menu ml-lg-5" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#!">Halo, {{ Auth::user()->name }}</a>
                                 <hr class="dropdown-divider" />
-                                @if(Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
                                     <a class="dropdown-item" href="/dashboard">Dashboard</a>
                                     <hr class="dropdown-divider" />
-                                @endif
                                 <a class="dropdown-item" href="{{ route('login') }}"  onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">Logout
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -65,22 +66,29 @@
                     </form>
                 </div>
                 <div class="d-flex d-sm-inline-block mt-2 mt-sm-2">
-                    <a href="{{ route('cart.list') }}">
-                        <button class="btn btn-info text-white">
+                    <a href="{{ route('cart.index') }}">
+                        <button class="btn btn-info text-white position-relative">
                             <i class="fas fa-shopping-cart fa-sm"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                {{ $wishlists->count() }}
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
                         </button>
                     </a>
                 </div>
             </div>
         </nav>
+
         @yield('content')
         <!-- Footer-->
-        <footer class="py-5 bg-dark">
+        <footer class="py-5 bg-dark ">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Supraun Product 2021</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="/js/scripts.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     </body>
 </html>

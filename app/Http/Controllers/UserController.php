@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\OrderDetail;
+use App\Models\PaymentCheck;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -121,4 +123,7 @@ class UserController extends Controller
 
         return redirect()->route('users.index')->with('success', 'Deleted successfully!');
     }
+
+
+  
 }

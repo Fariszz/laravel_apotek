@@ -81,7 +81,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::where('id', $id)->first();
-  
+
         return view('dashboard.product.detail',[
             'product' => $product
         ]);
@@ -141,9 +141,8 @@ class ProductController extends Controller
     {
         if (File::exists('storage/'.$product->image)) {
             File::delete('storage/'.$product->image);
-        }else{
-            dd("Images does not exts");
         }
+        
         Product::find($product->id)->delete();
         return redirect()->route('product.index')
             ->with('success','Product berhasil dihapus');

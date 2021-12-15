@@ -13,10 +13,15 @@ class Orders extends Model
 
     protected $fillable = [
         'user_id',
-        'date'
+        'total',
+        'status'
     ];
 
     public function orderdetails(){
-        return $this->hasMany(OrderDetail::class);
+        return $this->hasMany(Wishlist::class);
+    }
+
+    public function User(){
+        return $this->belongsTo(User::class,'user_id');
     }
 }
