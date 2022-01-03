@@ -22,6 +22,7 @@
                     <th>Harga</th>
                     <th>Pemilik</th>
                     <th>Stok</th>
+                    <th>Harga Diskon</th>
                     <th>Aksi</th>
                     </tr>
                 </thead>
@@ -35,6 +36,7 @@
                             {{ $product->user->name }}
                         </td>
                         <td>{{ $product->stok }}</td>
+                        <td>{{ $product->diskon }}</td>
                         <td>
                             <a href="{{ route('product.edit', $product->id) }}" class="btn btn-sm btn-warning mb-1">Edit</a>
                             <a href="{{ route('product.show', $product->id) }}" class="btn btn-sm btn-info mb-1">Show</a>

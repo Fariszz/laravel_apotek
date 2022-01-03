@@ -24,6 +24,7 @@ class CreateProductTable extends Migration
             $table->text('description');
             $table->integer('stok')->nullable();
             $table->string('image')->nullable();
+            $table->double('diskon')->nullable();
             $table->string('telfon');
             $table->timestamps();
         });

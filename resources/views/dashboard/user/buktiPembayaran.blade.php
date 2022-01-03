@@ -8,7 +8,7 @@
         <h1 class="h3 mb-0 text-gray-800">Upload Bukti Pembayaran</h1>
     </div>
     <div class="pull-right">
-        <a href="{{ route('payment.check') }}" class="btn btn-warning btn-xs mb-4"><i class="glyphicon glyphicon-chevron-left"> Kembali</i></a>
+        <a href="{{ route('payment.history') }}" class="btn btn-warning btn-xs mb-4"><i class="glyphicon glyphicon-chevron-left"> Kembali</i></a>
     </div>
 
     <!-- Content Row -->

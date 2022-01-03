@@ -50,6 +50,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
+
         $validatedData = $request->validate([
             'category_id' => 'required',
             'nama' => 'required',
@@ -57,10 +59,15 @@ class ProductController extends Controller
             'description' => 'required',
             'telfon' => 'required',
             'stok' => 'required',
+            'diskon' => 'nullable',
             'image' => 'nullable',
         ]);
+        $diskon = ($request->diskon / 100) * $request->harga;
 
+        $validatedData['diskon'] = $request->harga - $diskon;
         $validatedData['user_id'] = Auth::user()->id;
+
+
 
         if($request->file('image')){
             $validatedData['image'] = $request->file('image')->store('images', 'public');
@@ -142,7 +149,7 @@ class ProductController extends Controller
         if (File::exists('storage/'.$product->image)) {
             File::delete('storage/'.$product->image);
         }
-        
+
         Product::find($product->id)->delete();
         return redirect()->route('product.index')
             ->with('success','Product berhasil dihapus');

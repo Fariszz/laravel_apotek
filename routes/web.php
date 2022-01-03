@@ -33,7 +33,7 @@ Route::post('/product/{id}', [OrderController::class, 'order'])->name('produk.or
 
 Auth::routes();
 
-Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard.index')->middleware('adminKaryawan');
+Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard.index');
 
 Route::prefix('dashboard')->group(function(){
     //* Section Payment

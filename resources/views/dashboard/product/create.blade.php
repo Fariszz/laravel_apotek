@@ -46,6 +46,15 @@
                     @enderror
                 </div>
                 <div class="form-group">
+                    <label for="diskon">Diskon</label>
+                    <input type="number" name="diskon" class="form-control @error('diskon') is-invalid @enderror" required >
+                    @error('diskon')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+                <div class="form-group">
                     <label for="stok">Stok</label>
                     <input type="text" name="stok" class="form-control @error('stok') is-invalid @enderror" required >
                     @error('stok')

@@ -21,6 +21,7 @@ class Product extends Model
         'stok',
         'image',
         'telfon',
+        'diskon'
     ];
 
     public function User(){
