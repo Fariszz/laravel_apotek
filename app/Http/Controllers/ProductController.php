@@ -51,7 +51,6 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-
         $validatedData = $request->validate([
             'category_id' => 'required',
             'nama' => 'required',

@@ -12,7 +12,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "kyslik/column-sortable": "^6.4",
         "laravel/framework": "^8.65",
-        "laravel/sanctum": "^2.11",
+        "laravel/sanctum": "^2.15",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
         "realrashid/sweet-alert": "^4.1"
