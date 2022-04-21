@@ -87,4 +87,8 @@ class UserController extends Controller
 
         return ResponseFormatter::success($token, 'Token Revoked');
     }
+
+    public function fetch(Request $request){
+        return ResponseFormatter::success($request->user(),'Data profile user berhasil diambil');
+    }
 }
