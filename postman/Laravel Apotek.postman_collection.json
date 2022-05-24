@@ -1,0 +1,917 @@
+{
+	"info": {
+		"_postman_id": "44f36dd2-c39f-487b-812c-324a150c67cb",
+		"name": "Laravel Apotek",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Product Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/products?id=1",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Product",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/products?id=1",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"products"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 06:57:37 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 06:57:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Data produk berhasil diambil\"\n    },\n    \"data\": {\n        \"id\": 1,\n        \"user_id\": 1,\n        \"category_id\": 1,\n        \"nama\": \"Ulva Wahyuni\",\n        \"harga\": 648737,\n        \"description\": \"Eligendi omnis deleniti veniam similique.\",\n        \"stok\": 9,\n        \"image\": null,\n        \"diskon\": null,\n        \"telfon\": \"6812345678\",\n        \"created_at\": null,\n        \"updated_at\": \"2022-04-29T06:48:45.000000Z\",\n        \"category\": {\n            \"id\": 1,\n            \"nama\": \"obat\",\n            \"slug\": \"obat\",\n            \"created_at\": null,\n            \"updated_at\": null\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "All product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/products",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "All product",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/products",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 07:01:31 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 07:01:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Data produk berhasil diambil\"\n    },\n    \"data\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 1,\n                \"user_id\": 1,\n                \"category_id\": 1,\n                \"nama\": \"Ulva Wahyuni\",\n                \"harga\": 648737,\n                \"description\": \"Eligendi omnis deleniti veniam similique.\",\n                \"stok\": 9,\n                \"image\": null,\n                \"diskon\": null,\n                \"telfon\": \"6812345678\",\n                \"created_at\": null,\n                \"updated_at\": \"2022-04-29T06:48:45.000000Z\",\n                \"category\": {\n                    \"id\": 1,\n                    \"nama\": \"obat\",\n                    \"slug\": \"obat\",\n                    \"created_at\": null,\n                    \"updated_at\": null\n                }\n            },\n            {\n                \"id\": 2,\n                \"user_id\": 2,\n                \"category_id\": 2,\n                \"nama\": \"Dalima Safitri\",\n                \"harga\": 148473,\n                \"description\": \"Est autem a rerum ipsum.\",\n                \"stok\": 52,\n                \"image\": null,\n                \"diskon\": null,\n                \"telfon\": \"6812345678\",\n                \"created_at\": null,\n                \"updated_at\": null,\n                \"category\": {\n                    \"id\": 2,\n                    \"nama\": \"perlengkapan kesehatan\",\n                    \"slug\": \"perkesatan\",\n                    \"created_at\": null,\n                    \"updated_at\": null\n                }\n            },\n            {\n                \"id\": 3,\n                \"user_id\": 2,\n                \"category_id\": 1,\n                \"nama\": \"Vivi Siska Nuraini S.Gz\",\n                \"harga\": 663407,\n                \"description\": \"Qui ut beatae possimus.\",\n                \"stok\": 284,\n                \"image\": null,\n                \"diskon\": null,\n                \"telfon\": \"6812345678\",\n                \"created_at\": null,\n                \"updated_at\": null,\n                \"category\": {\n                    \"id\": 1,\n                    \"nama\": \"obat\",\n                    \"slug\": \"obat\",\n                    \"created_at\": null,\n                    \"updated_at\": null\n                }\n            },\n            {\n                \"id\": 4,\n                \"user_id\": 1,\n                \"category_id\": 2,\n                \"nama\": \"Carla Mandasari\",\n                \"harga\": 46497,\n                \"description\": \"Velit in et fugit reiciendis voluptate aut mollitia.\",\n                \"stok\": 844,\n                \"image\": null,\n                \"diskon\": null,\n                \"telfon\": \"6812345678\",\n                \"created_at\": null,\n                \"updated_at\": null,\n                \"category\": {\n                    \"id\": 2,\n                    \"nama\": \"perlengkapan kesehatan\",\n                    \"slug\": \"perkesatan\",\n                    \"created_at\": null,\n                    \"updated_at\": null\n                }\n            },\n            {\n                \"id\": 5,\n                \"user_id\": 2,\n                \"category_id\": 2,\n                \"nama\": \"Wardi Setiawan S.E.I\",\n                \"harga\": 874949,\n                \"description\": \"Harum ducimus accusamus velit accusamus.\",\n                \"stok\": 228,\n                \"image\": null,\n                \"diskon\": null,\n                \"telfon\": \"6812345678\",\n                \"created_at\": null,\n                \"updated_at\": null,\n                \"category\": {\n                    \"id\": 2,\n                    \"nama\": \"perlengkapan kesehatan\",\n                    \"slug\": \"perkesatan\",\n                    \"created_at\": null,\n                    \"updated_at\": null\n                }\n            },\n            {\n                \"id\": 6,\n                \"user_id\": 1,\n                \"category_id\": 2,\n                \"nama\": \"Unjani Riyanti S.E.I\",\n                \"harga\": 624031,\n                \"description\": \"Sunt tempore quo facere rerum ut ut.\",\n                \"stok\": 172,\n                \"image\": null,\n                \"diskon\": null,\n                \"telfon\": \"6812345678\",\n                \"created_at\": null,\n                \"updated_at\": null,\n                \"category\": {\n                    \"id\": 2,\n                    \"nama\": \"perlengkapan kesehatan\",\n                    \"slug\": \"perkesatan\",\n                    \"created_at\": null,\n                    \"updated_at\": null\n                }\n            },\n            {\n                \"id\": 7,\n                \"user_id\": 2,\n                \"category_id\": 2,\n                \"nama\": \"Widya Wijayanti\",\n                \"harga\": 929809,\n                \"description\": \"Ipsum laborum doloremque eius nam aut id consequatur.\",\n                \"stok\": 669,\n                \"image\": null,\n                \"diskon\": null,\n                \"telfon\": \"6812345678\",\n                \"created_at\": null,\n                \"updated_at\": null,\n                \"category\": {\n                    \"id\": 2,\n                    \"nama\": \"perlengkapan kesehatan\",\n                    \"slug\": \"perkesatan\",\n                    \"created_at\": null,\n                    \"updated_at\": null\n                }\n            },\n            {\n                \"id\": 8,\n                \"user_id\": 2,\n                \"category_id\": 1,\n                \"nama\": \"Kiandra Vanesa Agustina S.Sos\",\n                \"harga\": 721520,\n                \"description\": \"Blanditiis a aut voluptatem quasi consectetur tenetur.\",\n                \"stok\": 297,\n                \"image\": null,\n                \"diskon\": null,\n                \"telfon\": \"6812345678\",\n                \"created_at\": null,\n                \"updated_at\": null,\n                \"category\": {\n                    \"id\": 1,\n                    \"nama\": \"obat\",\n                    \"slug\": \"obat\",\n                    \"created_at\": null,\n                    \"updated_at\": null\n                }\n            },\n            {\n                \"id\": 9,\n                \"user_id\": 2,\n                \"category_id\": 2,\n                \"nama\": \"Gina Safitri S.Pd\",\n                \"harga\": 874749,\n                \"description\": \"Quae blanditiis ex maiores maiores sapiente consequuntur.\",\n                \"stok\": 311,\n                \"image\": null,\n                \"diskon\": null,\n                \"telfon\": \"6812345678\",\n                \"created_at\": null,\n                \"updated_at\": null,\n                \"category\": {\n                    \"id\": 2,\n                    \"nama\": \"perlengkapan kesehatan\",\n                    \"slug\": \"perkesatan\",\n                    \"created_at\": null,\n                    \"updated_at\": null\n                }\n            },\n            {\n                \"id\": 10,\n                \"user_id\": 2,\n                \"category_id\": 1,\n                \"nama\": \"Ratih Restu Padmasari\",\n                \"harga\": 70008,\n                \"description\": \"Doloremque odio excepturi et.\",\n                \"stok\": 801,\n                \"image\": null,\n                \"diskon\": null,\n                \"telfon\": \"6812345678\",\n                \"created_at\": null,\n                \"updated_at\": null,\n                \"category\": {\n                    \"id\": 1,\n                    \"nama\": \"obat\",\n                    \"slug\": \"obat\",\n                    \"created_at\": null,\n                    \"updated_at\": null\n                }\n            }\n        ],\n        \"first_page_url\": \"http://localhost:8000/api/products?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://localhost:8000/api/products?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8000/api/products?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://localhost:8000/api/products\",\n        \"per_page\": 15,\n        \"prev_page_url\": null,\n        \"to\": 10,\n        \"total\": 10\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "AddToCart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|kJRseFerpkqGIx2nh4EnL2chQCZYUsdC15PJNSM0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/products?id=1&product_id=1&category_id=1&nama=Ulva Wahyuni&harga=648737&quantity=1",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "product_id",
+									"value": "1"
+								},
+								{
+									"key": "category_id",
+									"value": "1"
+								},
+								{
+									"key": "nama",
+									"value": "Ulva Wahyuni"
+								},
+								{
+									"key": "harga",
+									"value": "648737"
+								},
+								{
+									"key": "quantity",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/category",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"category"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Category",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/category",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"category"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 27 Apr 2022 07:26:34 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 27 Apr 2022 07:26:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Data kategori berhasil diambil\"\n    },\n    \"data\": [\n        {\n            \"id\": 1,\n            \"nama\": \"obat\",\n            \"slug\": \"obat\",\n            \"created_at\": null,\n            \"updated_at\": null\n        },\n        {\n            \"id\": 2,\n            \"nama\": \"perlengkapan kesehatan\",\n            \"slug\": \"perkesatan\",\n            \"created_at\": null,\n            \"updated_at\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Category Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/category?slug=obat",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"category"
+							],
+							"query": [
+								{
+									"key": "slug",
+									"value": "obat"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Category Product",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/category?slug=obat",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"category"
+									],
+									"query": [
+										{
+											"key": "slug",
+											"value": "obat"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 27 Apr 2022 07:32:25 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 27 Apr 2022 07:32:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Data kategori berhasil diambil\"\n    },\n    \"data\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 1,\n                \"user_id\": 1,\n                \"category_id\": 1,\n                \"nama\": \"Paracetamol\",\n                \"harga\": 15000,\n                \"description\": \"Obat untuk sakit panas\",\n                \"stok\": 69,\n                \"image\": \"C:\\\\xampp\\\\tmp\\\\php6E52.tmp\",\n                \"diskon\": null,\n                \"telfon\": \"6812345678\",\n                \"created_at\": null,\n                \"updated_at\": \"2022-04-25T07:30:06.000000Z\",\n                \"category\": {\n                    \"id\": 1,\n                    \"nama\": \"obat\",\n                    \"slug\": \"obat\",\n                    \"created_at\": null,\n                    \"updated_at\": null\n                }\n            },\n            {\n                \"id\": 2,\n                \"user_id\": 2,\n                \"category_id\": 1,\n                \"nama\": \"Winda Widiastuti\",\n                \"harga\": 698751,\n                \"description\": \"Possimus architecto sit corporis quibusdam minima qui repellendus.\",\n                \"stok\": 567,\n                \"image\": null,\n                \"diskon\": null,\n                \"telfon\": \"6812345678\",\n                \"created_at\": null,\n                \"updated_at\": null,\n                \"category\": {\n                    \"id\": 1,\n                    \"nama\": \"obat\",\n                    \"slug\": \"obat\",\n                    \"created_at\": null,\n                    \"updated_at\": null\n                }\n            },\n            {\n                \"id\": 4,\n                \"user_id\": 2,\n                \"category_id\": 1,\n                \"nama\": \"Vera Hesti Mayasari S.Gz\",\n                \"harga\": 991520,\n                \"description\": \"Quia inventore in est omnis.\",\n                \"stok\": 870,\n                \"image\": null,\n                \"diskon\": null,\n                \"telfon\": \"6812345678\",\n                \"created_at\": null,\n                \"updated_at\": null,\n                \"category\": {\n                    \"id\": 1,\n                    \"nama\": \"obat\",\n                    \"slug\": \"obat\",\n                    \"created_at\": null,\n                    \"updated_at\": null\n                }\n            },\n            {\n                \"id\": 5,\n                \"user_id\": 2,\n                \"category_id\": 1,\n                \"nama\": \"Hana Nilam Safitri S.Ked\",\n                \"harga\": 884076,\n                \"description\": \"Sed qui aspernatur est dicta nemo impedit qui.\",\n                \"stok\": 878,\n                \"image\": null,\n                \"diskon\": null,\n                \"telfon\": \"6812345678\",\n                \"created_at\": null,\n                \"updated_at\": null,\n                \"category\": {\n                    \"id\": 1,\n                    \"nama\": \"obat\",\n                    \"slug\": \"obat\",\n                    \"created_at\": null,\n                    \"updated_at\": null\n                }\n            },\n            {\n                \"id\": 6,\n                \"user_id\": 2,\n                \"category_id\": 1,\n                \"nama\": \"Julia Sudiati S.T.\",\n                \"harga\": 725745,\n                \"description\": \"Perspiciatis impedit tenetur incidunt officiis et voluptatibus.\",\n                \"stok\": 557,\n                \"image\": null,\n                \"diskon\": null,\n                \"telfon\": \"6812345678\",\n                \"created_at\": null,\n                \"updated_at\": null,\n                \"category\": {\n                    \"id\": 1,\n                    \"nama\": \"obat\",\n                    \"slug\": \"obat\",\n                    \"created_at\": null,\n                    \"updated_at\": null\n                }\n            },\n            {\n                \"id\": 7,\n                \"user_id\": 1,\n                \"category_id\": 1,\n                \"nama\": \"Diah Hartati S.Ked\",\n                \"harga\": 613515,\n                \"description\": \"Amet accusantium sequi itaque cumque laboriosam.\",\n                \"stok\": 321,\n                \"image\": null,\n                \"diskon\": null,\n                \"telfon\": \"6812345678\",\n                \"created_at\": null,\n                \"updated_at\": null,\n                \"category\": {\n                    \"id\": 1,\n                    \"nama\": \"obat\",\n                    \"slug\": \"obat\",\n                    \"created_at\": null,\n                    \"updated_at\": null\n                }\n            }\n        ],\n        \"first_page_url\": \"http://localhost:8000/api/category?page=1\",\n        \"from\": 1,\n        \"last_page\": 2,\n        \"last_page_url\": \"http://localhost:8000/api/category?page=2\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8000/api/category?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": \"http://localhost:8000/api/category?page=2\",\n                \"label\": \"2\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8000/api/category?page=2\",\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": \"http://localhost:8000/api/category?page=2\",\n        \"path\": \"http://localhost:8000/api/category\",\n        \"per_page\": 6,\n        \"prev_page_url\": null,\n        \"to\": 6,\n        \"total\": 8\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Cart",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  7|uSXNrvWhoT7cEIlMzogd1BhHkJQiXNka2QoswDz9",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/api/cart",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"cart"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Cart",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer  4|kJRseFerpkqGIx2nh4EnL2chQCZYUsdC15PJNSM0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/api/cart",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"cart"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 06:53:05 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 06:53:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Data list transaksi berhasil diambil\"\n    },\n    \"data\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 1,\n                \"user_id\": 1,\n                \"category_id\": 1,\n                \"product_id\": 1,\n                \"nama\": \"Ulva Wahyuni\",\n                \"harga\": 648737,\n                \"quantity\": 1,\n                \"image\": null,\n                \"created_at\": \"2022-04-29T06:48:45.000000Z\",\n                \"updated_at\": \"2022-04-29T06:48:45.000000Z\",\n                \"product\": {\n                    \"id\": 1,\n                    \"user_id\": 1,\n                    \"category_id\": 1,\n                    \"nama\": \"Ulva Wahyuni\",\n                    \"harga\": 648737,\n                    \"description\": \"Eligendi omnis deleniti veniam similique.\",\n                    \"stok\": 9,\n                    \"image\": null,\n                    \"diskon\": null,\n                    \"telfon\": \"6812345678\",\n                    \"created_at\": null,\n                    \"updated_at\": \"2022-04-29T06:48:45.000000Z\"\n                },\n                \"user\": {\n                    \"id\": 1,\n                    \"name\": \"admin\",\n                    \"email\": \"admin@mail.com\",\n                    \"role_id\": 1,\n                    \"email_verified_at\": null,\n                    \"alamat\": \"alamat admin\",\n                    \"created_at\": null,\n                    \"updated_at\": null\n                },\n                \"category\": {\n                    \"id\": 1,\n                    \"nama\": \"obat\",\n                    \"slug\": \"obat\",\n                    \"created_at\": null,\n                    \"updated_at\": null\n                }\n            }\n        ],\n        \"first_page_url\": \"http://localhost:8000/api/cart?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://localhost:8000/api/cart?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8000/api/cart?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://localhost:8000/api/cart\",\n        \"per_page\": 15,\n        \"prev_page_url\": null,\n        \"to\": 1,\n        \"total\": 1\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auhtnetication",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/login?email=admin@mail.com&password=admin",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "admin@mail.com"
+								},
+								{
+									"key": "password",
+									"value": "admin"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/login?email=admin@mail.com&password=admin",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"login"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "admin@mail.com"
+										},
+										{
+											"key": "password",
+											"value": "admin"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 27 Apr 2022 08:28:49 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 27 Apr 2022 08:28:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Authenticated\"\n    },\n    \"data\": {\n        \"access_token\": \"1|hr9YYonbl0Qz3dnHY1V6pV1lr1BZTzySQ963HRyb\",\n        \"token_type\": \"Bearer\",\n        \"user\": {\n            \"id\": 1,\n            \"name\": \"admin\",\n            \"email\": \"admin@mail.com\",\n            \"role_id\": 1,\n            \"email_verified_at\": null,\n            \"alamat\": \"alamat admin\",\n            \"created_at\": null,\n            \"updated_at\": null\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 7|uSXNrvWhoT7cEIlMzogd1BhHkJQiXNka2QoswDz9",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/api/user",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "User",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer 3|qQJ2h8ct3zhtSheoZt9Wwr3arfZJKEXxjqcH8N5Z",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/api/user",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 06:47:05 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 06:47:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Data profile user berhasil diambil\"\n    },\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"admin\",\n        \"email\": \"admin@mail.com\",\n        \"role_id\": 1,\n        \"email_verified_at\": null,\n        \"alamat\": \"alamat admin\",\n        \"created_at\": null,\n        \"updated_at\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|kJRseFerpkqGIx2nh4EnL2chQCZYUsdC15PJNSM0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/logout",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "logout",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/logout",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 07:50:55 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 07:50:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Token Revoked\"\n    },\n    \"data\": true\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Checkout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "6|ngOZUK8YirtrZ3HRhByqfoAy43nYRsRfv8zmWLSc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 6|ngOZUK8YirtrZ3HRhByqfoAy43nYRsRfv8zmWLSc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"items\": [\r\n        {\r\n            \"id\": 1,\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"id\": 3,\r\n            \"quantity\": 2\r\n        }\r\n    ],\r\n    \"status\": \"PENDING\",\r\n    \"total_price\": 2000,\r\n    \"shipping_price\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/checkout",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"checkout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "localhost:8000"
+		}
+	]
+}
