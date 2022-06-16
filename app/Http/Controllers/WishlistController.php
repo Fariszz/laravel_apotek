@@ -94,7 +94,6 @@ class WishlistController extends Controller
     public function destroy($id){
         $wishlist = Wishlist::where('id',$id)->first();
 
-
         //* Stok
         DB::beginTransaction();
 
@@ -137,6 +136,7 @@ class WishlistController extends Controller
 
         // dd($total);
 
-        return redirect()->route('cart.index')->with('success','Checkout Berhasil');
+        // return redirect()->route('cart.index')->with('success','Checkout Berhasil');
+        return redirect()->route('payment.history')->with('success','Checkout Berhasil');
     }
 }
